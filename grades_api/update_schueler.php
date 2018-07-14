@@ -38,7 +38,7 @@ elseif ($_GET['klass'])
 }
 elseif ($_GET['test'])
 {
-    echo "test";
+    echo "exist";
 }
 $rows = "";
 
