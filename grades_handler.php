@@ -33,7 +33,7 @@ function gradeshandler_settings_page()
 	echo "<p>API-Link: " . $link . "</p>";
 
 echo "
-			<input name='grades_handler_api_key' type='text' id='grades_handler_api_key' value='' class='regular-text' readonly>
+			<label>API - Key: </label>><input name='grades_handler_api_key' type='text' id='grades_handler_api_key' value='' class='regular-text' readonly>
 
 			<div class='wrap'>
 
