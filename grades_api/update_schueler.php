@@ -1,8 +1,11 @@
 <?php
-#if ($_GET['pw'] == "heavenTV")
-#{
 define('WP_USE_THEMES', false);
 require_once($_SERVER['DOCUMENT_ROOT'] . "/wp-load.php");
+$sum = $wpdb->get_var( $wpdb->prepare( "SELECT schueler_settings_value FROM schueler_settings WHERE schueler_settings_name = 'api_key'") );
+
+if ($_GET['apikey'] == $sum)
+{
+
 if ($_GET['grade'] =='1')
 {
 
@@ -39,4 +42,4 @@ elseif ($_GET['test'])
 }
 $rows = "";
 
-#}
+}

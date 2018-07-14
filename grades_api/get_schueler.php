@@ -1,40 +1,15 @@
 <?php
-#if ($_GET['pw'] == "heavenTV")
-#{
-$servername = $_GET['ip'];
-$username = $_GET['user'];
-$password = $_GET['pw'];
-$dbname = $_GET['dbname'];
+define('WP_USE_THEMES', false);
+require_once($_SERVER['DOCUMENT_ROOT'] . "/wp-load.php");
+$sum = $wpdb->get_var( $wpdb->prepare( "SELECT schueler_settings_value FROM schueler_settings WHERE schueler_settings_name = 'api_key'") );
 
+if ($_GET['apikey'] == $sum)
+{
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+	$query = "SELECT * FROM schueler";
 
+	$result = $wpdb->get_row($query, ARRAY_A, 3);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+	print_r($result);
 }
-
-$sql = "SELECT * FROM schueler;";
-$result = $conn->query($sql);
-
-$rows = "";
-
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
-		$prnt;
-		foreach ($row as $rw_value)
-		{
-			$prnt .= $rw_value . ";";
-		}
-		echo $prnt . "|";
-		$prnt = "";
-		#echo "<br>";
-    }
-} else {
-    echo "0 results";
-}
-
-
-$conn->close();
-#}
 ?>
