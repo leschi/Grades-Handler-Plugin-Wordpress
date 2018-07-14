@@ -40,7 +40,7 @@ function gradeshandler_settings_page()
 
 
 echo "
-			<label>API - Link: </label><input name='grades_handler_api_link' type='text' id='grades_handler_api_link' value='" . $link . "' class='regular-text' readonly><br>
+			<label>API - Link: </label><input name='grades_handler_api_link' type='text' id='grades_handler_api_link' value='http://" . $link . "' class='regular-text' readonly><br>
 			<label>API - Key: </label><input name='grades_handler_api_key' type='text' id='grades_handler_api_key' value='" . $sum . "' class='regular-text' readonly>
 
 			<div class='wrap'>
