@@ -1,9 +1,9 @@
 <?php
-function de(){
+function de()
+{
 
 
-
-			echo "<style type='text/css'>
+    echo "<style type='text/css'>
 
 			.deutsch_noten{
 
@@ -13,333 +13,286 @@ function de(){
 
 			</style>";
 
-			
 
-		echo "<div class='deutsch_noten'>";
+    echo "<div class='deutsch_noten'>";
 
-		
 
-		global $current_user;
+    global $current_user;
 
-		get_currentuserinfo();
+    get_currentuserinfo();
 
 
+    $name = $current_user->user_login;
 
-		$name = $current_user->user_login;
 
-		
+    global $wpdb;
 
-		global $wpdb;
+    $customers = $wpdb->get_row("SELECT deutsch_sa,deutsch_mit,deutsch_wdh,deutsch_port,deutsch_sonst FROM schueler Where username ='" . $name . "';");
 
-		$customers = $wpdb->get_row("SELECT deutsch_sa,deutsch_mit,deutsch_wdh,deutsch_port,deutsch_sonst FROM schueler Where username ='".$name."';");
 
-		
+    #begin Table Deutsch SA
 
-		
+    echo "<div class='widefat' style='font-size: 200%;text-decoration: underline;'>Deutsch Schularbeiten</div><br><br>";
 
-		#begin Table Deutsch SA
+    echo "<table style='border: 2px'>";
 
-		echo "<div class='widefat' style='font-size: 200%;text-decoration: underline;'>Deutsch Schularbeiten</div><br><br>";
+    echo "<tr>";
 
-		echo "<table style='border: 2px'>";
+    echo "<th>Testdatum</th>";
 
-		echo "<tr>";
+    echo "<th>Grund</th>";
 
-		echo "<th>Testdatum</th>";
+    echo "<th>Punkte</th>";
 
-		echo "<th>Grund</th>";
+    echo "<th>Notiz</th>";
 
-		echo "<th>Punkte</th>";
+    echo "</tr>";
 
-		echo "<th>Notiz</th>";
 
-		echo "</tr>";
+    $teile = explode("§", $customers->deutsch_sa);
 
-		
 
-		$teile = explode("§", $customers->deutsch_sa);
+    foreach ($teile as $customer) {
 
-		
+        if ($customer != "") {
 
-		foreach($teile as $customer){
+            list($testdatum, $datumeintrag, $grund, $punkte, $notiz) = explode("^", $customer);
 
-		if ($customer != "") {
 
-		list($testdatum, $datumeintrag, $grund, $punkte, $notiz) = explode("^", $customer);
+            echo "<tr>";
 
-		
+            echo "<td>" . $testdatum . "</td>";
 
-		echo "<tr>";
+            echo "<td>" . $grund . "</td>";
 
-		echo "<td>".$testdatum."</td>";
+            echo "<td>" . $punkte . "</td>";
 
-		echo "<td>".$grund."</td>";
+            echo "<td>" . $notiz . "</td>";
 
-		echo "<td>".$punkte."</td>";
+            echo "</tr>";
 
-		echo "<td>".$notiz."</td>";
+        }
 
-		echo "</tr>";
+    }
 
-		}
+    echo "</table>";
 
-		}
+    #end table deutsch sa
 
-		echo "</table>";
 
-		#end table deutsch sa
+    echo "<br><br><br>";
 
-		
 
-		
+    #begin Table Deutsch mitarbeit
 
-		echo "<br><br><br>";
+    echo "<div class='widefat' style='font-size: 200%;text-decoration: underline;'>Deutsch Mitarbeit</div><br><br>";
 
-		
+    echo "<table style='border: 2px'>";
 
-		
+    echo "<tr>";
 
-		#begin Table Deutsch mitarbeit
+    echo "<th>Datum</th>";
 
-		echo "<div class='widefat' style='font-size: 200%;text-decoration: underline;'>Deutsch Mitarbeit</div><br><br>";
+    echo "<th>Grund</th>";
 
-		echo "<table style='border: 2px'>";
+    echo "<th>Punkte</th>";
 
-		echo "<tr>";
+    echo "<th>Notiz</th>";
 
-		echo "<th>Datum</th>";
+    echo "</tr>";
 
-		echo "<th>Grund</th>";
 
-		echo "<th>Punkte</th>";
+    $teile = explode("§", $customers->deutsch_mit);
 
-		echo "<th>Notiz</th>";
 
-		echo "</tr>";
+    foreach ($teile as $customer) {
 
-		
+        if ($customer != "") {
 
-		$teile = explode("§", $customers->deutsch_mit);
+            list($testdatum, $datumeintrag, $grund, $punkte, $notiz) = explode("^", $customer);
 
-		
 
-		foreach($teile as $customer){
+            echo "<tr>";
 
-		if ($customer != "") {
+            echo "<td>" . $testdatum . "</td>";
 
-		list($testdatum, $datumeintrag, $grund, $punkte, $notiz) = explode("^", $customer);
+            echo "<td>" . $grund . "</td>";
 
-		
+            echo "<td>" . $punkte . "</td>";
 
-		echo "<tr>";
+            echo "<td>" . $notiz . "</td>";
 
-		echo "<td>".$testdatum."</td>";
+            echo "</tr>";
 
-		echo "<td>".$grund."</td>";
+        }
 
-		echo "<td>".$punkte."</td>";
+    }
 
-		echo "<td>".$notiz."</td>";
+    echo "</table>";
 
-		echo "</tr>";
+    #end table deutsch mitarbeit
 
-		}
 
-		}
+    echo "<br><br><br>";
 
-		echo "</table>";
 
-		#end table deutsch mitarbeit
+    #begin Table Deutsch wiederholungen
 
-				
+    echo "<div class='widefat' style='font-size: 200%;text-decoration: underline;'>Deutsch Wiederholungen</div><br><br>";
 
-		
+    echo "<table style='border: 2px'>";
 
-		echo "<br><br><br>";
+    echo "<tr>";
 
-		
+    echo "<th>Datum</th>";
 
-		
+    echo "<th>Grund</th>";
 
-		#begin Table Deutsch wiederholungen
+    echo "<th>Punkte</th>";
 
-		echo "<div class='widefat' style='font-size: 200%;text-decoration: underline;'>Deutsch Wiederholungen</div><br><br>";
+    echo "<th>Notiz</th>";
 
-		echo "<table style='border: 2px'>";
+    echo "</tr>";
 
-		echo "<tr>";
 
-		echo "<th>Datum</th>";
+    $teile = explode("§", $customers->deutsch_wdh);
 
-		echo "<th>Grund</th>";
 
-		echo "<th>Punkte</th>";
+    foreach ($teile as $customer) {
 
-		echo "<th>Notiz</th>";
+        if ($customer != "") {
 
-		echo "</tr>";
+            list($testdatum, $datumeintrag, $grund, $punkte, $notiz) = explode("^", $customer);
 
-		
 
-		$teile = explode("§", $customers->deutsch_wdh);
+            echo "<tr>";
 
-		
+            echo "<td>" . $testdatum . "</td>";
 
-		foreach($teile as $customer){
+            echo "<td>" . $grund . "</td>";
 
-		if ($customer != "") {
+            echo "<td>" . $punkte . "</td>";
 
-		list($testdatum, $datumeintrag, $grund, $punkte, $notiz) = explode("^", $customer);
+            echo "<td>" . $notiz . "</td>";
 
-		
+            echo "</tr>";
 
-		echo "<tr>";
+        }
 
-		echo "<td>".$testdatum."</td>";
+    }
 
-		echo "<td>".$grund."</td>";
+    echo "</table>";
 
-		echo "<td>".$punkte."</td>";
+    #end table deutsch wiederholungen
 
-		echo "<td>".$notiz."</td>";
 
-		echo "</tr>";
+    echo "<br><br><br>";
 
-		}
 
-		}
+    #begin Table Deutsch portfolios
 
-		echo "</table>";
+    echo "<div class='widefat' style='font-size: 200%;text-decoration: underline;'>Deutsch Portfolios</div><br><br>";
 
-		#end table deutsch wiederholungen
+    echo "<table style='border: 2px'>";
 
-						
+    echo "<tr>";
 
-		
+    echo "<th>Datum</th>";
 
-		echo "<br><br><br>";
+    echo "<th>Grund</th>";
 
-		
+    echo "<th>Punkte</th>";
 
-		
+    echo "<th>Notiz</th>";
 
-		#begin Table Deutsch portfolios
+    echo "</tr>";
 
-		echo "<div class='widefat' style='font-size: 200%;text-decoration: underline;'>Deutsch Portfolios</div><br><br>";
 
-		echo "<table style='border: 2px'>";
+    $teile = explode("§", $customers->deutsch_port);
 
-		echo "<tr>";
 
-		echo "<th>Datum</th>";
+    foreach ($teile as $customer) {
 
-		echo "<th>Grund</th>";
+        if ($customer != "") {
 
-		echo "<th>Punkte</th>";
+            list($testdatum, $datumeintrag, $grund, $punkte, $notiz) = explode("^", $customer);
 
-		echo "<th>Notiz</th>";
 
-		echo "</tr>";
+            echo "<tr>";
 
-		
+            echo "<td>" . $testdatum . "</td>";
 
-		$teile = explode("§", $customers->deutsch_port);
+            echo "<td>" . $grund . "</td>";
 
-		
+            echo "<td>" . $punkte . "</td>";
 
-		foreach($teile as $customer){
+            echo "<td>" . $notiz . "</td>";
 
-		if ($customer != "") {
+            echo "</tr>";
 
-		list($testdatum, $datumeintrag, $grund, $punkte, $notiz) = explode("^", $customer);
+        }
 
-		
+    }
 
-		echo "<tr>";
+    echo "</table>";
 
-		echo "<td>".$testdatum."</td>";
+    #end table deutsch portfolios
 
-		echo "<td>".$grund."</td>";
 
-		echo "<td>".$punkte."</td>";
+    echo "<br><br><br>";
 
-		echo "<td>".$notiz."</td>";
 
-		echo "</tr>";
+    #begin Table Deutsch sonstige
 
-		}
+    echo "<div class='widefat' style='font-size: 200%;text-decoration: underline;'>Deutsch Sonstige Beurteilungen</div><br><br>";
 
-		}
+    echo "<table style='border: 2px'>";
 
-		echo "</table>";
+    echo "<tr>";
 
-		#end table deutsch portfolios
+    echo "<th>Datum</th>";
 
-								
+    echo "<th>Grund</th>";
 
-		
+    echo "<th>Punkte</th>";
 
-		echo "<br><br><br>";
+    echo "<th>Notiz</th>";
 
-		
+    echo "</tr>";
 
-		
 
-		#begin Table Deutsch sonstige
+    $teile = explode("§", $customers->deutsch_sonst);
 
-		echo "<div class='widefat' style='font-size: 200%;text-decoration: underline;'>Deutsch Sonstige Beurteilungen</div><br><br>";
 
-		echo "<table style='border: 2px'>";
+    foreach ($teile as $customer) {
 
-		echo "<tr>";
+        if ($customer != "") {
 
-		echo "<th>Datum</th>";
+            list($testdatum, $datumeintrag, $grund, $punkte, $notiz) = explode("^", $customer);
 
-		echo "<th>Grund</th>";
 
-		echo "<th>Punkte</th>";
+            echo "<tr>";
 
-		echo "<th>Notiz</th>";
+            echo "<td>" . $testdatum . "</td>";
 
-		echo "</tr>";
+            echo "<td>" . $grund . "</td>";
 
-		
+            echo "<td>" . $punkte . "</td>";
 
-		$teile = explode("§", $customers->deutsch_sonst);
+            echo "<td>" . $notiz . "</td>";
 
-		
+            echo "</tr>";
 
-		foreach($teile as $customer){
+        }
 
-		if ($customer != "") {
+    }
 
-		list($testdatum, $datumeintrag, $grund, $punkte, $notiz) = explode("^", $customer);
+    echo "</table>";
 
-		
+    #end table deutsch sonstige
 
-		echo "<tr>";
 
-		echo "<td>".$testdatum."</td>";
+    echo "</div>";
 
-		echo "<td>".$grund."</td>";
-
-		echo "<td>".$punkte."</td>";
-
-		echo "<td>".$notiz."</td>";
-
-		echo "</tr>";
-
-		}
-
-		}
-
-		echo "</table>";
-
-		#end table deutsch sonstige
-
-		
-
-		echo "</div>";
-
-
+}
 ?>
