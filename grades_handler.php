@@ -228,15 +228,14 @@ if(isset($_POST['db_new']))
 
   UNIQUE KEY `id` (`id`)
 
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=95 ;
-	CREATE TABLE `mysqldatabase19352`.`schueler_settings` (
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=95 ;");
+
+	$customers = $wpdb->get_results("CREATE TABLE `mysqldatabase19352`.`schueler_settings` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `schueler_settings_name` VARCHAR(45) NULL,
   `schueler_settings_value` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC));");
-
-
 
 			goback();
 
