@@ -31,7 +31,7 @@ function gradeshandler_settings_page()
 	$link = plugins_url() . "/Grades-Handler-Plugin-Wordpress/grades_api/";
 
 	echo "<p>API-Link: " . $link . "</p>";
-
+	echo echobin2hex(random_bytes(25));
 echo "
 			<label>API - Key: </label><input name='grades_handler_api_key' type='text' id='grades_handler_api_key' value='' class='regular-text' readonly>
 
@@ -103,7 +103,7 @@ function goback()
 
 if(isset($_POST['apikey-reset']))
 {
-	
+
 	$wpdb->insert(
 		'schueler_settings',
 		array(
