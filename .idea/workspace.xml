@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="974084e7-1b39-4304-b943-9410476af0a2" name="Default" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/grades_handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/grades_handler.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/grades_api/update_schueler.php" beforeDir="false" afterPath="$PROJECT_DIR$/grades_api/update_schueler.php" afterDir="false" />
+>>>>>>> develop
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,12 +34,18 @@
       <file leaf-file-name="update_schueler.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grades_api/update_schueler.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="68">
               <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
+=======
+            <state relative-caret-position="51">
+              <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="31" />
+>>>>>>> develop
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="grades_handler.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grades_handler.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -50,6 +60,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
               <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+=======
+      <file leaf-file-name="deutsch.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grades_api/types/deutsch.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1530">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+              </folding>
+>>>>>>> develop
             </state>
           </provider>
         </entry>
@@ -101,6 +121,12 @@
               <item name="Grades Handler Plugin Wordpress" type="462c0819:PsiDirectoryNode" />
               <item name="grades_api" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Grades Handler Plugin Wordpress" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Grades Handler Plugin Wordpress" type="462c0819:PsiDirectoryNode" />
+              <item name="grades_api" type="462c0819:PsiDirectoryNode" />
+              <item name="types" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -133,12 +159,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1531560413667</updated>
+<<<<<<< HEAD
       <workItem from="1531560418995" duration="4988000" />
+=======
+      <workItem from="1531560418995" duration="3141000" />
+>>>>>>> develop
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="4988000" />
+=======
+    <option name="totallyTimeSpent" value="3141000" />
+>>>>>>> develop
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -200,6 +234,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grades_api/update_schueler.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="68">
           <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
         </state>
@@ -209,6 +244,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="100" column="24" lean-forward="true" selection-start-line="100" selection-start-column="24" selection-end-line="100" selection-end-column="24" />
+=======
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grades_api/types/deutsch.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1530">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+          </folding>
+>>>>>>> develop
         </state>
       </provider>
     </entry>
