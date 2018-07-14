@@ -38,9 +38,9 @@ function gradeshandler_settings_page()
 
 	$sum = $wpdb->get_var( $wpdb->prepare( "SELECT schueler_settings_value FROM schueler_settings WHERE schueler_settings_name = 'api_key'") );
 
-	
+
 echo "
-			<label>API - Link: </label><input name='grades_handler_api_link' type='text' id='grades_handler_api_link' value='" . $link . "' class='regular-text' readonly>
+			<label>API - Link: </label><input name='grades_handler_api_link' type='text' id='grades_handler_api_link' value='" . $link . "' class='regular-text' readonly><br>
 			<label>API - Key: </label><input name='grades_handler_api_key' type='text' id='grades_handler_api_key' value='" . $sum . "' class='regular-text' readonly>
 
 			<div class='wrap'>
