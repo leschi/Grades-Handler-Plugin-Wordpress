@@ -31,16 +31,17 @@ function gradeshandler_settings_page()
 {
 
 	$wpdb = "";
+	$result = "";
 
 	$link = plugins_url() . "/Grades-Handler-Plugin-Wordpress/grades_api/";
 
 	$query = "SELECT schueler_settings_value FROM schueler_settings WHERE schueler_settings_name = 'api_key'";
-	$wpdb->get_var($query);
+	$result = $wpdb->get_var($query);
 
 
 	echo "<p>API-Link: " . $link . "</p>";
 echo "
-			<label>API - Key: </label><input name='grades_handler_api_key' type='text' id='grades_handler_api_key' value='" . $wpdb . "' class='regular-text' readonly>
+			<label>API - Key: </label><input name='grades_handler_api_key' type='text' id='grades_handler_api_key' value='" . $result . "' class='regular-text' readonly>
 
 			<div class='wrap'>
 
