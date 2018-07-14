@@ -1,7 +1,8 @@
 <?php
 #if ($_GET['pw'] == "heavenTV")
 #{
-require_once("../wp/wp-load.php");
+define('WP_USE_THEMES', false);
+require_once($_SERVER['DOCUMENT_ROOT'] . "/wp-load.php");
 if ($_GET['grade'] =='1')
 {
 
@@ -39,4 +40,3 @@ elseif ($_GET['test'])
 $rows = "";
 
 #}
-?>
