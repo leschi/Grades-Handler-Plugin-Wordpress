@@ -117,7 +117,17 @@ if(isset($_POST['apikey-reset']))
 		)
 	);
 
-	echo $wpdb;
+	$wpdb->update(
+		'schueler_settings',
+		array(
+			'schueler_settings_value' => md5(uniqid(rand(), true))
+		),
+		array( 'schueler_settings_name' => 'api_key' ),
+		array(
+			'%s'
+		),
+		array( '%s' )
+	);
 
 	goback();
 
