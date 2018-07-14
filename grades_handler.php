@@ -102,16 +102,13 @@ function goback()
 }
 
 if(isset($_POST['apikey-reset']))
-
 {
-
-	global $wpdb;
-
+	
 	$wpdb->insert(
 		'schueler_settings',
 		array(
 			'schueler_settings_name' => 'api_key',
-			'schueler_settings_value' => $token = bin2hex(random_bytes(25))
+			'schueler_settings_value' => bin2hex(random_bytes(25))
 		),
 		array(
 			'%s',
@@ -123,8 +120,7 @@ if(isset($_POST['apikey-reset']))
 
 }
 
-if(isset($_POST['ja'])) 
-
+if(isset($_POST['ja']))
 { 
 
    			global $wpdb;
