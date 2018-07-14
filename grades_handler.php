@@ -33,7 +33,6 @@ function gradeshandler_settings_page()
 	$link = plugins_url() . "/Grades-Handler-Plugin-Wordpress/grades_api/";
 
 	echo "<p>API-Link: " . $link . "</p>";
-	echo md5(uniqid(rand(), true));
 echo "
 			<label>API - Key: </label><input name='grades_handler_api_key' type='text' id='grades_handler_api_key' value='' class='regular-text' readonly>
 
@@ -110,7 +109,7 @@ if(isset($_POST['apikey-reset']))
 		'schueler_settings',
 		array(
 			'schueler_settings_name' => 'api_key',
-			'schueler_settings_value' => bin2hex(random_bytes(25))
+			'schueler_settings_value' => md5(uniqid(rand(), true))
 		),
 		array(
 			'%s',
