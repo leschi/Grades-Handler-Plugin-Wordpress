@@ -8,8 +8,8 @@ if ($_GET['apikey'] == $sum)
 
 	$query = "SELECT * FROM schueler";
 
-	$result = $wpdb->get_row($query, ARRAY_A, 3);
+	$result = $wpdb->get_results($query);
 
-	print_r($result);
+	echo json_encode($result);
 }
 ?>
