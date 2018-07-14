@@ -33,11 +33,15 @@ function gradeshandler_settings_page()
 	echo "<p>API-Link: " . $link . "</p>";
 
 echo "
-			<label>API - Key: </label>><input name='grades_handler_api_key' type='text' id='grades_handler_api_key' value='' class='regular-text' readonly>
+			<label>API - Key: </label><input name='grades_handler_api_key' type='text' id='grades_handler_api_key' value='' class='regular-text' readonly>
 
 			<div class='wrap'>
 
 			<form action='" . $_SERVER['PHP_SELF'] ."' method='POST'> 
+
+			<input type='submit' value='API-Key Generate' name='apikey-reset' /> 
+
+			<br><br>
 
 			<input type='submit' value='User Aktualisieren' name='ja' /> 
 
@@ -97,7 +101,27 @@ function goback()
 
 }
 
+if(isset($_POST['apikey-reset']))
 
+{
+
+	global $wpdb;
+
+	$wpdb->insert(
+		'schueler_settings',
+		array(
+			'schueler_settings_name' => 'api_key',
+			'schueler_settings_value' => $token = bin2hex(random_bytes(25))
+		),
+		array(
+			'%s',
+			'%s'
+		)
+	);
+
+	goback();
+
+}
 
 if(isset($_POST['ja'])) 
 
@@ -204,7 +228,13 @@ if(isset($_POST['db_new']))
 
   UNIQUE KEY `id` (`id`)
 
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=95 ;");
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=95 ;
+	CREATE TABLE `mysqldatabase19352`.`schueler_settings` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `schueler_settings_name` VARCHAR(45) NULL,
+  `schueler_settings_value` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC));");
 
 
 
