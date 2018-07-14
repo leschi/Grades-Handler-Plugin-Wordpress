@@ -23,15 +23,17 @@ function my_plugin_menu()
 }
 
 
-
-function gradeshandler_settings_page() 
+/**
+ *
+ */
+function gradeshandler_settings_page()
 
 {
 
 	$link = plugins_url() . "/Grades-Handler-Plugin-Wordpress/grades_api/";
 
 	echo "<p>API-Link: " . $link . "</p>";
-	echo echobin2hex(random_bytes(25));
+	echo md5(uniqid(rand(), true));
 echo "
 			<label>API - Key: </label><input name='grades_handler_api_key' type='text' id='grades_handler_api_key' value='' class='regular-text' readonly>
 
