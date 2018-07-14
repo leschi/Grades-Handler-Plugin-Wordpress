@@ -1,48 +1,42 @@
 <?php
 #if ($_GET['pw'] == "heavenTV")
 #{
-$servername = $_GET['ip'];
-$username = $_GET['user'];
-$password = $_GET['pw'];
-$dbname = $_GET['dbname'];
-
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+require_once("../wp/wp-load.php");
 if ($_GET['grade'] =='1')
 {
-	
-$sql = "UPDATE schueler SET {$_GET['fach']}='{$_GET['note']}' WHERE id={$_GET['nickname']}";
-echo $sql;
-echo "<br><br>" . $_GET['nickname'];
-$result = $conn->query($sql);
+
+    $wpdb->update(
+        'schueler',
+        array(
+            $_GET['fach'] => $_GET['note']
+        ),
+        array( 'id' => $_GET['nickname'] ),
+        array(
+            '%s'
+        ),
+        array( '%s' )
+    );
+
 }
 elseif ($_GET['klass'])
 {
-$sql = "UPDATE schueler SET klasse='" . $_GET['klasse'] ."' WHERE username='" . $_GET['nickname'] . "'";
-$result = $conn->query($sql);
+    $wpdb->update(
+        'schueler',
+        array(
+            'klasse' => $_GET['klasse']
+        ),
+        array( 'username' => $_GET['nickname'] ),
+        array(
+            '%s'
+        ),
+        array( '%s' )
+    );
 }
 elseif ($_GET['test'])
 {
-
-	
-	if ($result = $conn->query("SHOW TABLES LIKE 'schueler'")) {
-    if($result->num_rows == 1) {
-        echo "exist";
-    }
-	}
-	else {
-    echo "error";
-	}
+    echo "test";
 }
 $rows = "";
 
-
-$conn->close();
 #}
 ?>
