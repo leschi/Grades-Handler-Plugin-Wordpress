@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+//error_reporting(E_ALL);
+//ini_set('display_errors', '1');
 
 /*Plugin Name: Grades Handler
 
@@ -34,7 +34,7 @@ function gradeshandler_settings_page()
 
 	global $wpdb;
 
-	$link = plugins_url() . "/Grades-Handler-Plugin-Wordpress/grades_api/";
+	$link = $_SERVER['HTTP_HOST'] . plugins_url() . "/Grades-Handler-Plugin-Wordpress/grades_api/";
 
 	$sum = $wpdb->get_var( $wpdb->prepare( "SELECT schueler_settings_value FROM schueler_settings WHERE schueler_settings_name = 'api_key'") );
 
