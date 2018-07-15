@@ -8,16 +8,16 @@ if ($_GET['apikey'] == $sum)
 
 if ($_GET['grade'] =='1')
 {
-
+	$wpdb->show_errors();
 	$wpdb->insert(
 		$_GET['notentyp'],
 		array(
-			$_GET['notentyp'] . 'colschueler' => $_GET['schueler'],
-			$_GET['notentyp'] . 'coltestdatum' => $_GET['testdatum'],
-			$_GET['notentyp'] . 'colgrund' => $_GET['grund'],
-			$_GET['notentyp'] . 'colpunkte' => $_GET['punkte'],
-			$_GET['notentyp'] . 'colnotitz' => $_GET['notitz'],
-			$_GET['notentyp'] . 'colfach' => $_GET['fach']
+			$_GET['notentyp'] . 'col_schueler' => $_GET['schueler'],
+			$_GET['notentyp'] . 'col_testdatum' => $_GET['testdatum'],
+			$_GET['notentyp'] . 'col_grund' => $_GET['grund'],
+			$_GET['notentyp'] . 'col_punkte' => $_GET['punkte'],
+			$_GET['notentyp'] . 'col_notitz' => $_GET['notitz'],
+			$_GET['notentyp'] . 'col_fach' => $_GET['fach']
 		),
 		array(
 			'%s',
