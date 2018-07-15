@@ -48,6 +48,10 @@ elseif ($_GET['test'])
 {
     echo "exist";
 }
+else
+{
+	echo "error";
+}
 $rows = "";
 
 }
