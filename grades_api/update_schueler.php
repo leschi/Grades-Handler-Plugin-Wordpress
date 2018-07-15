@@ -9,17 +9,25 @@ if ($_GET['apikey'] == $sum)
 if ($_GET['grade'] =='1')
 {
 
-    $wpdb->update(
-        'schueler',
-        array(
-            $_GET['fach'] => $_GET['note']
-        ),
-        array( 'id' => $_GET['nickname'] ),
-        array(
-            '%s'
-        ),
-        array( '%s' )
-    );
+	$wpdb->insert(
+		$_GET['notentyp'],
+		array(
+			$_GET['notentyp'] . 'colschueler' => $_GET['schueler'],
+			$_GET['notentyp'] . 'coltestdatum' => $_GET['testdatum'],
+			$_GET['notentyp'] . 'colgrund' => $_GET['grund'],
+			$_GET['notentyp'] . 'colpunkte' => $_GET['punkte'],
+			$_GET['notentyp'] . 'colnotitz' => $_GET['notitz'],
+			$_GET['notentyp'] . 'colfach' => $_GET['fach']
+		),
+		array(
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			'%s',
+			'%s'
+		)
+	);
 
 }
 elseif ($_GET['klass'])
