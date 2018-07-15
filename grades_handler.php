@@ -179,67 +179,7 @@ if(isset($_POST['db_new']))
   `username` text COLLATE utf8_bin NOT NULL,
 
   `klasse` text COLLATE utf8_bin NOT NULL,
-
-  `deutsch_sa` text COLLATE utf8_bin NOT NULL,
-
-  `deutsch_mit` text COLLATE utf8_bin NOT NULL,
-
-  `deutsch_wdh` text COLLATE utf8_bin NOT NULL,
-
-  `deutsch_port` text COLLATE utf8_bin NOT NULL,
-
-  `deutsch_sonst` text COLLATE utf8_bin NOT NULL,
-
-  `gspb_sa` text COLLATE utf8_bin NOT NULL,
-
-  `gspb_mit` text COLLATE utf8_bin NOT NULL,
-
-  `gspb_wdh` text COLLATE utf8_bin NOT NULL,
-
-  `gspb_port` text COLLATE utf8_bin NOT NULL,
-
-  `gspb_sonst` text COLLATE utf8_bin NOT NULL,
-
-  `deutsch_plus_sa` text COLLATE utf8_bin NOT NULL,
-
-  `deutsch_plus_mit` text COLLATE utf8_bin NOT NULL,
-
-  `deutsch_plus_wdh` text COLLATE utf8_bin NOT NULL,
-
-  `deutsch_plus_port` text COLLATE utf8_bin NOT NULL,
-
-  `deutsch_plus_sonst` text COLLATE utf8_bin NOT NULL,
-
-  `prk_sa` text COLLATE utf8_bin NOT NULL,
-
-  `prk_mit` text COLLATE utf8_bin NOT NULL,
-
-  `prk_wdh` text COLLATE utf8_bin NOT NULL,
-
-  `prk_port` text COLLATE utf8_bin NOT NULL,
-
-  `prk_sonst` text COLLATE utf8_bin NOT NULL,
-
-  `schreibwerkstatt_sa` text COLLATE utf8_bin NOT NULL,
-
-  `schreibwerkstatt_mit` text COLLATE utf8_bin NOT NULL,
-
-  `schreibwerkstatt_wdh` text COLLATE utf8_bin NOT NULL,
-
-  `schreibwerkstatt_port` text COLLATE utf8_bin NOT NULL,
-
-  `schreibwerkstatt_sonst` text COLLATE utf8_bin NOT NULL,
-
-  `gspb_plus_sa` text COLLATE utf8_bin NOT NULL,
-
-  `gspb_plus_mit` text COLLATE utf8_bin NOT NULL,
-
-  `gspb_plus_wdh` text COLLATE utf8_bin NOT NULL,
-
-  `gspb_plus_port` text COLLATE utf8_bin NOT NULL,
-
-  `gspb_plus_sonst` text COLLATE utf8_bin NOT NULL,
-
+  
   PRIMARY KEY (`id`),
 
   UNIQUE KEY `id` (`id`)
@@ -252,6 +192,62 @@ if(isset($_POST['db_new']))
   `schueler_settings_value` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC));");
+
+
+	$customers = $wpdb->get_results("CREATE TABLE `mysqldatabase19352`.`schueler_schularbeiten` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `schueler_schularbeitencol_schueler` VARCHAR(25) NULL,
+  `schueler_schularbeitencol_testdatum` VARCHAR(300) NULL,
+  `schueler_schularbeitencol_grund` VARCHAR(300) NULL,
+  `schueler_schularbeitencol_punkte` VARCHAR(300) NULL,
+  `schueler_schularbeitencol_notitz` VARCHAR(300) NULL,
+  `schueler_schularbeitencol_fach` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));");
+
+	$customers = $wpdb->get_results("CREATE TABLE `mysqldatabase19352`.`schueler_mitarbeit` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `schueler_mitarbeitcol_schueler` VARCHAR(25) NULL,
+  `schueler_mitarbeitcol_testdatum` VARCHAR(300) NULL,
+  `schueler_mitarbeitcol_grund` VARCHAR(300) NULL,
+  `schueler_mitarbeitcol_punkte` VARCHAR(300) NULL,
+  `schueler_mitarbeitcol_notitz` VARCHAR(300) NULL,
+  `schueler_mitarbeitcol_fach` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));");
+
+	$customers = $wpdb->get_results("CREATE TABLE `mysqldatabase19352`.`schueler_wiederholung` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `schueler_wiederholungcol_schueler` VARCHAR(25) NULL,
+  `schueler_wiederholungcol_testdatum` VARCHAR(300) NULL,
+  `schueler_wiederholungcol_grund` VARCHAR(300) NULL,
+  `schueler_wiederholungcol_punkte` VARCHAR(300) NULL,
+  `schueler_wiederholungcol_notitz` VARCHAR(300) NULL,
+  `schueler_wiederholungcol_fach` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));");
+
+	$customers = $wpdb->get_results("CREATE TABLE `mysqldatabase19352`.`schueler_portfolio` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `schueler_portfoliocol_schueler` VARCHAR(25) NULL,
+  `schueler_portfoliocol_testdatum` VARCHAR(300) NULL,
+  `schueler_portfoliocol_grund` VARCHAR(300) NULL,
+  `schueler_portfoliocol_punkte` VARCHAR(300) NULL,
+  `schueler_portfoliocol_notitz` VARCHAR(300) NULL,
+  `schueler_portfoliocol_fach` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));");
+
+	$customers = $wpdb->get_results("CREATE TABLE `mysqldatabase19352`.`schueler_sonstiges` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `schueler_sonstigescol_schueler` VARCHAR(25) NULL,
+  `schueler_sonstigescol_testdatum` VARCHAR(300) NULL,
+  `schueler_sonstigescol_grund` VARCHAR(300) NULL,
+  `schueler_sonstigescol_punkte` VARCHAR(300) NULL,
+  `schueler_sonstigescol_notitz` VARCHAR(300) NULL,
+  `schueler_sonstigescol_fach` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));");
+
+	$customers = $wpdb->get_results("CREATE TABLE `mysqldatabase19352`.`faecher` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(25) NULL,
+  PRIMARY KEY (`id`));");
 
 			goback();
 
@@ -268,8 +264,13 @@ if(isset($_POST['db_löschen']))
 
 
 			$customers = $wpdb->get_results("DROP TABLE schueler;");
-
-
+			$customers = $wpdb->get_results("DROP TABLE schueler_schularbeiten;");
+			$customers = $wpdb->get_results("DROP TABLE schueler_mitarbeit;");
+			$customers = $wpdb->get_results("DROP TABLE schueler_wiederholung;");
+			$customers = $wpdb->get_results("DROP TABLE schueler_portfolio;");
+			$customers = $wpdb->get_results("DROP TABLE schueler_sonstiges;");
+			$customers = $wpdb->get_results("DROP TABLE schueler_settings;");
+			$customers = $wpdb->get_results("DROP TABLE faecher;");
 
 			goback();
 
